@@ -71,7 +71,7 @@
         a {
             color: var(--primary-color);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         a:hover {
@@ -102,7 +102,7 @@
         }
 
         .nav-menu {
-            display: none; /* 手機端預設隱藏或簡化，此骨架採簡單連結排版 */
+            display: none; /* 手機端預設隱藏或簡化 */
         }
 
         .nav-link {
@@ -150,10 +150,68 @@
         /* CSS:HERO-END */
 
         /* CSS:ABOUT-START */
-        .section-about .about-content {
+        .section-about .about-layout {
             display: flex;
             flex-direction: column;
-            gap: 40px;
+            gap: 3rem;
+        }
+        .about-text-content {
+            flex: 1;
+        }
+        .about-p {
+            margin-bottom: 1.2rem;
+            color: var(--text-main);
+        }
+        .about-strengths {
+            list-style: none;
+            margin: 2rem 0;
+            padding: 0;
+        }
+        .about-strengths li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+        .about-strengths li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        .about-strengths strong {
+            color: var(--text-main);
+        }
+        .about-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .about-btn {
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .about-btn-primary {
+            background-color: var(--primary-color);
+            color: var(--bg-dark);
+        }
+        .about-btn-primary:hover {
+            background-color: var(--primary-hover);
+            color: var(--bg-dark);
+        }
+        .about-btn-outline {
+            border: 1.5px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        .about-btn-outline:hover {
+            background-color: rgba(6, 182, 212, 0.1);
+        }
+        .about-image-wrapper {
+            flex: 1;
         }
         /* CSS:ABOUT-END */
 
@@ -194,12 +252,10 @@
             .hero-title {
                 font-size: 3.5rem;
             }
-            .section-about .about-content {
+            /* About 區塊 RWD 調節 */
+            .section-about .about-layout {
                 flex-direction: row;
                 align-items: center;
-            }
-            .about-image, .about-text {
-                flex: 1;
             }
             .section-projects .project-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -244,14 +300,29 @@
             </section>
             <section id="about" class="section section-about" aria-labelledby="about-heading">
                 <div class="container">
-                    <div class="about-content">
-                        <div class="about-image">
-                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="正在工作的開發者與筆記型電腦" loading="lazy">
-                        </div>
-                        <div class="about-text">
+                    <div class="about-layout">
+                        <div class="about-text-content">
                             <h2 id="about-heading" class="section-title">關於我</h2>
-                            <p>這裡目前是 About 區的占位內容，之後會用另一個 Prompt 產生正式內容，請把新的 section 程式碼整段貼回來，取代這一區。</p>
-                            <p style="margin-top: 1rem;">這張圖片來自 Unsplash，用於展示專業的個人形象占位。</p>
+                            <p class="about-p">
+                                我目前是一名專注於電商領域的前端工程師與技術教練。我擅長利用 HTML、CSS 與 Python 自動化工具來優化設計流程，並致力於打造兼具美感與轉化率的網頁介面，幫助客戶在競爭激烈的市場中脫穎而出。
+                            </p>
+                            <p class="about-p">
+                                在工作風格上，我極度重視與夥伴的溝通透明度。我喜歡將複雜的技術概念拆解成易懂的語言，並持續透過教學來打磨自己的專業技能，確保產出的每一個專案都能精準對齊商業目標並易於維護。
+                            </p>
+                            
+                            <ul class="about-strengths">
+                                <li><strong>高效自動化：</strong> 結合 Python 與前端技術，大幅提升重複性設計任務的產出效率。</li>
+                                <li><strong>商業邏輯導向：</strong> 不只做美觀的設計，更從電商數據與行銷角度思考頁面佈局。</li>
+                                <li><strong>清晰技術溝通：</strong> 具備跨團隊協作經驗，能將複雜需求轉化為可執行的技術方案。</li>
+                            </ul>
+
+                            <div class="about-actions">
+                                <a href="#projects" class="about-btn about-btn-primary">查看作品集</a>
+                                <a href="#contact" class="about-btn about-btn-outline">聯絡我</a>
+                            </div>
+                        </div>
+                        <div class="about-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80" alt="正在專注撰寫程式碼的前端工程師" loading="lazy">
                         </div>
                     </div>
                 </div>
